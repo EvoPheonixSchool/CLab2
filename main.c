@@ -12,9 +12,9 @@
 /**************************************************************************/
 /* Function prototypes
  **************************************************************************/
-int display();
+void display();
 int dice();
-int result(int,int);
+void win(int,int);
 int rando();
 
 /**************************************************************************/
@@ -33,7 +33,7 @@ int main( void ) {
     int loop = 0;
     char cont;
 
-        srand(time(NULL));
+    srand(time(NULL));
     while (loop == 0) {
         fflush(stdin);
         printf("ROLL THE DICE WITH [ENTER]\n");
@@ -52,12 +52,10 @@ int main( void ) {
 
 
 //displays header for dice
-int display(){
+void display(){
     printf("--------------------------------------------------------------\n");
     printf("ROLL NUM     DIE #1     DIE #2     TOTAL ROLL     POINT MATCH\n");
     printf("--------------------------------------------------------------\n");
-
-    return EXIT_SUCCESS;
 }
 
 //handles the dice rolling
@@ -119,7 +117,7 @@ int rando(){
 }
 
 //win/lose message
-int win(int num,int res){
+void win(int num,int res){
     if(res == 0){
         printf("You rolled: %d and won\n",num);
     }else{
