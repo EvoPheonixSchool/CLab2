@@ -30,11 +30,22 @@ int rando();
  *            1 on failure
  **************************************************************************/
 int main( void ) {
-    srand(time(NULL));
-    printf("ROLL THE DICE WITH [ENTER]\n");
-    getchar();
-    display();
-    dice();
+    int loop = 0;
+    char cont;
+
+        srand(time(NULL));
+    while (loop == 0) {
+        fflush(stdin);
+        printf("ROLL THE DICE WITH [ENTER]\n");
+        getchar();
+        display();
+        dice();
+        printf("Continue (y/n)?\n");
+        scanf("%c", &cont);
+        if (cont == 'n') {
+            loop = 1;
+        }
+    }
 
     return EXIT_SUCCESS;
 }
