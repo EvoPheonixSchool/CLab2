@@ -33,7 +33,7 @@ int main( void ) {
     int loop = 0;
     char cont;
 
-    srand(time(NULL));
+    srand((unsigned int) time(NULL));
     while (loop == 0) {
         fflush(stdin);
         printf("ROLL THE DICE WITH [ENTER]\n");
