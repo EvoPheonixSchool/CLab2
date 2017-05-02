@@ -69,14 +69,9 @@ int dice(){
         die2 = rando();
         total = die1 + die2;
 
-        if(total == point){
-            win(total,0);
-            return 0;
-        }else if(total > point){
-            point = total;
-        }
 
         if(i == 1){
+            //if its the first roll
             point = total;
             printf("1     %d     %d     %d     %d\n",die1,die2,total,point);
             if(total == 7){
@@ -102,15 +97,24 @@ int dice(){
             }
         }else{
             printf("%d     %d     %d     %d     %d\n",i,die1,die2,total,point);
-        }
+            if(total == 7){
+                //lost if 7 is rolled second or third
+                win(total,1);
+                return 1;
+            }else if(total == point){
+                //win if total matches point
+                win(total,0);
+                return 0;
+            }
 
-    }
+    }}
+        printf("Did not meet winning conditions\n");
+        return 1;
 
 }
 
 //returns random number for dice roll
 int rando(){
-
     return (rand() % 6) + 1 ;
 }
 
